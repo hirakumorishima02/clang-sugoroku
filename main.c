@@ -5,31 +5,21 @@
 void init_rand();
 
 int main(void) {
-    int goal=30,dise1,dise2,dise3,num;
+    int goal=30;
 
     init_rand();
 
     while(goal>=0){
+        int i,num,dise,sum=0;
+
         puts("ダイスをいくつ振る?");
         scanf("%d", &num);
 
-        if(num==1){
-            dise1 = 1 + rand() % 3;
-            goal -= dise1;
-        } else if(num==2){
-            dise1 = 1 + rand() % 3;
-            dise2 = 1 + rand() % 3;
-            goal -= dise1;
-            goal -= dise2;
-        } else{
-            dise1 = 1 + rand() % 3;
-            dise2 = 1 + rand() % 3;
-            dise3 = 1 + rand() % 3;
-            goal -= dise1;
-            goal -= dise2;
-            goal -= dise3;
+        for(i=0;i<num;i++){
+            sum += 1 + rand() % 3;
         }
-
+        printf("出た目の総数は%d\nです。", sum);
+        goal -= sum;
         printf("ゴールまであと…%d\n", goal);
     }
 
