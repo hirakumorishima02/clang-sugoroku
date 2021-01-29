@@ -2,34 +2,18 @@
 #include <stdlib.h>
 #include <time.h>
 
-int ransuu();
-int sugoroku(/*int saikoro*/);
+int main(void) {
+    int goal=30,dise=0;
 
-int main(void){
-    int saikoro,result,goal=30;
-    // scanf("%d", &saikoro);
+    srand((unsigned int)time(NULL));
 
-    while(goal!=0){
-        result = sugoroku(/*saikoro*/);
-        goal = goal - result;
-        if(goal==0) break;
+    while(goal>=0){
+        dise = 1 + rand() % 3;
+        goal -= dise;
+        printf("%d", dise);
     }
 
-    puts("ゴール");
+    puts("goal!");
 
     return 0;
-}
-
-int ransuu(){
-    int i;
-    srand((unsigned int)time(NULL)); // 乱数発生のおまじない
-    i = 0 + rand() % 4; // 乱数発生のおまじない
-    return i;
-}
-
-int sugoroku(/*int saikoro*/) {
-    int result;
-    result = ransuu();
-    printf("%d", result);
-    return result;
 }
